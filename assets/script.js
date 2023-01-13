@@ -27,9 +27,9 @@ while(cartas%2 != 0 || isNaN(cartas) == true ) {
         const tabuleiro = document.querySelector('.tabuleiro');
 
         for (let i = 0; i< cartas; i++) {
-        tabuleiro.innerHTML += `<div class="card" onclick="clicar(this)">
-        <img class="background-parrot" src="./assets/files/back.png" alt="card background">
-        <img class="front-parrot-gif invisivel" src="./assets/files/${arrayJogo[i]}" alt="card front">
+        tabuleiro.innerHTML += `<div class="card" onclick="clicar(this)" data-test="card">
+        <img class="background-parrot" src="./assets/files/back.png" alt="card background" data-test="face-down-image">
+        <img class="front-parrot-gif invisivel" src="./assets/files/${arrayJogo[i]}" alt="card front" data-test="face-up-image">
         </div>`
         }
 
