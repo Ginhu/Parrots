@@ -1,4 +1,4 @@
-let cartas = 1, arrayJogo = [], div1, div2, contador=0,
+let cartas = 1, arrayJogo = [], div1, div2, contador=0, relogio=0,
 gif = ["bobrossparrot.gif", 
        "explodyparrot.gif", 
        "fiestaparrot.gif", 
@@ -16,6 +16,8 @@ while(cartas%2 != 0 || isNaN(cartas) == true ) {
     if (cartas < 4 || cartas > 14 || isNaN(cartas) == true || cartas%2 != 0) {
         alert('O valor informado é não inválido: as cartas podem ir de 4 a 14! Por favor tente novamente!');
     } else {
+
+        setInterval(tempo, 1000);
 
         for (let i = 0; i<cartas/2; i++) {
         arrayJogo.push(gif[i]);
@@ -39,6 +41,11 @@ while(cartas%2 != 0 || isNaN(cartas) == true ) {
 
 function comparador() { 
 	return Math.random() - 0.5; 
+}
+
+function tempo() {
+    document.querySelector('.reloginho').innerHTML = relogio;
+    relogio++;
 }
 
 function clicar(cartaClicada) {
@@ -72,7 +79,7 @@ function clicar(cartaClicada) {
             div2.classList.remove('clicado');
             div2.classList.add('acerto');
             if (document.querySelectorAll('.acerto').length == cartas) {
-                alert(`Você ganhou em ${contador} jogadas!`);
+                alert(`Você ganhou em ${contador} jogadas! A duração do jogo doi de ${relogio} segundos!`);
             }
         }
     } 

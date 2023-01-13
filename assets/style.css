@@ -57,6 +57,23 @@ h1 {
     display: none;
 }
 
+.reloginho {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -0.004em;
+    color: #86bd8d;
+    position: fixed;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+    width: 46px;
+    height: 46px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 @media (max-width:600px) {
     h1 {
