@@ -1,15 +1,45 @@
-let cartas = 1;
-let div1, div2;
+let cartas = 1, arrayJogo = [], div1, div2, contador,
+gif = ["bobrossparrot.gif", 
+       "explodyparrot.gif", 
+       "fiestaparrot.gif", 
+       "metalparrot.gif", 
+       "revertitparrot.gif", 
+       "tripletsparrot.gif", 
+       "unicornparrot.gif"];
 
-/* while(cartas%2 != 0 || isNaN(cartas) == true ) {
+
+
+
+while(cartas%2 != 0 || isNaN(cartas) == true ) {
     cartas = prompt('Informe com quantas cartas quer jogar!');
 
     if (cartas < 4 || cartas > 14 || isNaN(cartas) == true || cartas%2 != 0) {
-        alert('O valor informado é não inválido: as cartas podem ir de 4 a 14! Por favor tente novamente.');
-    } 
+        alert('O valor informado é não inválido: as cartas podem ir de 4 a 14! Por favor tente novamente!');
+    } else {
+
+        for (let i = 0; i<cartas/2; i++) {
+        arrayJogo.push(gif[i]);
+        arrayJogo.push(gif[i]);
+        }
+
+        arrayJogo.sort(comparador);
+
+        const tabuleiro = document.querySelector('.tabuleiro');
+
+        for (let i = 0; i< cartas; i++) {
+        tabuleiro.innerHTML += `<div class="card" onclick="clicar(this)">
+        <img class="background-parrot" src="./assets/files/back.png" alt="card background">
+        <img class="front-parrot-gif invisivel" src="./assets/files/${arrayJogo[i]}" alt="card front">
+        </div>`
+        }
+
+    }
 
 }
- */
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
 function clicar(cartaClicada) {
     
