@@ -1,4 +1,4 @@
-let cartas = 1, arrayJogo = [], div1, div2, contador,
+let cartas = 1, arrayJogo = [], div1, div2, contador=0,
 gif = ["bobrossparrot.gif", 
        "explodyparrot.gif", 
        "fiestaparrot.gif", 
@@ -49,8 +49,7 @@ function clicar(cartaClicada) {
     div1.querySelector('.background-parrot').classList.add('invisivel');
     div1.querySelector('.front-parrot-gif').classList.remove('invisivel');
     div1.removeAttribute("onclick");
-    console.log(div1.querySelector('.front-parrot-gif').src);
-    /* console.log(cartaClicada.querySelector('.background-parrot').src); */
+    contador++;
     }
     else if (document.querySelectorAll('.clicado').length<2){
     
@@ -59,7 +58,8 @@ function clicar(cartaClicada) {
     div2.querySelector('.background-parrot').classList.add('invisivel');
     div2.querySelector('.front-parrot-gif').classList.remove('invisivel');
     div2.removeAttribute("onclick");
-    console.log(div2.querySelector('.front-parrot-gif').src);
+    contador++;
+
 
         if(div1.querySelector('.front-parrot-gif').src != div2.querySelector('.front-parrot-gif').src) {
             console.log('diferente');
@@ -68,7 +68,12 @@ function clicar(cartaClicada) {
             div1.removeAttribute("onclick");
             div2.removeAttribute("onclick");
             div1.classList.remove('clicado');
+            div1.classList.add('acerto');
             div2.classList.remove('clicado');
+            div2.classList.add('acerto');
+            if (document.querySelectorAll('.acerto').length == cartas) {
+                alert(`Você ganhou em ${contador} jogadas!`);
+            }
         }
     } 
 }
